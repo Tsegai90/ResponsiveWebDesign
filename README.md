@@ -110,3 +110,28 @@ Here is a simple SVG element:
 <svg width="100" height="100" viewBox="0 0 100 100">
   <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow" />
 </svg>
+
+
+Quincy's Tips for Getting a Developer Job
+
+Dette projekt er lavet med HTML.
+Det handler om at øve semantic HTML ved at bygge en side med tips fra Quincy Larson.
+
+📁 Indhold
+index.html
+Quincy Larson tips om at blive developer
+
+💻 Teknologier
+HTML5
+
+🎯 Funktioner
+Semantic HTML (header, main, section, blockquote, cite)
+Brug af citater fra Quincy Larson
+Struktureret indhold med sektioner
+Enkel webside med tips til at få et developer job
+
+🚀 Sådan bruger du projektet
+Download eller clone repo
+Åbn index.html i din browser
+
+👨‍💻 Forfatter
