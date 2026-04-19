@@ -135,3 +135,36 @@ Download eller clone repo
 Åbn index.html i din browser
 
 👨‍💻 Forfatter
+# My Tutorial Website
+
+## 📄 Description
+This is a simple HTML website built as a tutorial project. It includes a header, navigation, sections, an article, and a footer with contact information.
+
+## 🌐 Features
+- Semantic HTML structure
+- Navigation links
+- About section
+- Blog posts section
+- Contact information using `<address>`
+
+## 🛠️ Technologies Used
+- HTML5
+
+## 📁 Project Structure
+- Header with title and image
+- Navigation menu
+- About section
+- Posts section with article
+- Footer with contact details
+
+## 🚀 How to Run
+1. Download the project files
+2. Open `index.html` in your browser
+3. No installation required
+
+## 📬 Contact
+Phone: 5555555555  
+Email: contact@company.com
+
+## 📌 Notes
+This is a beginner-friendly project for learning semantic HTML.
