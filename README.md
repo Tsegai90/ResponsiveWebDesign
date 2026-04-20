@@ -168,3 +168,45 @@ Email: contact@company.com
 
 ## 📌 Notes
 This is a beginner-friendly project for learning semantic HTML.
+
+
+# Event Hub Website
+
+This project is a simple HTML structure for an **Event Hub** website that provides information about both upcoming and past events. The website is structured with a clean layout and includes sections for upcoming events and past events, featuring descriptions, dates, and images for past events.
+
+## Features
+
+- **Navigation**: 
+   - Links to sections for *Upcoming Events* and *Past Events*.
+   - Easy-to-navigate structure for a better user experience.
+
+- **Upcoming Events**: 
+   - Lists future events like the "AI & Machine Learning Conference 2024" and the "Web Development Bootcamp."
+
+- **Past Events**:
+   - Displays events such as the "Cybersecurity Summit 2024" and "Blockchain Expo 2024" with relevant images and event details.
+
+## Structure
+
+1. **Header**
+   - The website's title is prominently displayed.
+   - A navigation menu allows easy access to upcoming and past events.
+
+2. **Main Content**
+   - **Upcoming Events**: Two events are listed with their details, including descriptions and dates.
+   - **Past Events**: Displays two past events with descriptions, dates, and accompanying images.
+
+## Technologies Used
+
+- **HTML5**: Basic structure for the webpage.
+- **CSS** (optional for styling, not included here): To be added for layout and design enhancements.
+  
+## How to Use
+
+1. Clone or download this repository.
+2. Open the `index.html` file in any web browser.
+3. The site is fully responsive and will scale based on device size.
+
+## License
+
+This project is open-source and available under the MIT License.
