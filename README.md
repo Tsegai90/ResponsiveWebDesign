@@ -210,3 +210,64 @@ This project is a simple HTML structure for an **Event Hub** website that provid
 ## License
 
 This project is open-source and available under the MIT License.
+
+
+# Hotel Feedback Form
+
+## Description
+
+The **Hotel Feedback Form** is a simple and interactive web form designed to gather feedback from customers who have recently stayed at a hotel. It provides an easy way for guests to share their experiences and rate different aspects of their stay, helping the hotel management understand customer satisfaction and improve their services.
+
+The form is divided into several sections to collect relevant information:
+
+1. **Personal Information**: It collects the guest's name, email address, and age. While the name and email are required fields, the age field is optional.
+  
+2. **Hotel Stay Information**: It asks the guest if this was their first time staying at the hotel, using radio buttons for a simple yes/no response.
+
+3. **Reasons for Choosing the Hotel**: This section allows users to select multiple reasons for choosing the hotel, such as location, reputation, price, social media ads, and personal recommendations.
+
+4. **Ratings**: The form includes dropdown menus to rate the service and food, where users can choose from options ranging from "Poor" to "Excellent".
+
+5. **Other Comments**: A text area allows users to leave additional feedback or comments about their experience, whether positive or constructive.
+
+The form submits all the collected data to a designated URL, where it can be processed and stored. The design is simple, ensuring ease of use for a wide range of users.
+
+---
+
+## Features:
+
+- **Personal Information Section**:
+  - **Name** (required): User must enter their full name.
+  - **Email** (required): User must provide a valid email address.
+  - **Age** (optional): User can enter their age (between 3 and 100).
+  
+- **Hotel Stay Information**:
+  - A pair of radio buttons (Yes/No) to check if this was the user's first time staying at the hotel.
+
+- **Reasons for Choosing the Hotel**:
+  - A set of checkboxes where the user can select multiple reasons (e.g., Social Media Ads, Personal Recommendation, Location, Reputation, Price).
+
+- **Ratings Section**:
+  - Users are asked to rate:
+    - **Service**: A dropdown menu with options ranging from Poor to Excellent.
+    - **Food**: A dropdown menu with options ranging from Poor to Excellent.
+
+- **Additional Comments**:
+  - A **textarea** field where users can provide any extra feedback or comments.
+
+- **Submit Button**:
+  - A **Submit** button to submit the form data to a server endpoint for processing.
+
+---
+
+## Form Action
+
+The form submits a `POST` request to the URL `https://hotel-feedback.freecodecamp.org`. This URL can be replaced with your own backend endpoint to handle the submitted feedback.
+
+---
+
+## Installation
+
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/yourusername/hotel-feedback-form.git
