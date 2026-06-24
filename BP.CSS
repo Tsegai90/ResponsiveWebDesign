@@ -1,0 +1,29 @@
+
+ 
+#tableContainer {
+  max-width: 900px;
+  margin: auto;
+}
+#color{
+    color:red;
+}
+
+.wrapper {
+  background:darkcyan;
+  padding: 10px;
+}
+
+.bookRow{ 
+  color:darkmagenta;
+  width: 100%;
+  
+}
+
+.bookRow:hover {
+  background-color: darkorange;
+}
+
+.title {
+  font-weight: bold;
+  color: darkgreen;
+}
