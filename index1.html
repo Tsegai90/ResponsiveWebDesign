@@ -1,21 +1,158 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta >
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>svgtuterial</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semantic HTML Demo</title>
 </head>
+
 <body>
- <h1>iframe Video Display</h1>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/I0_951_MPE0"
-      allow="accelerometer autoplay clipboard-write encrypted-media gyroscope web-share"
-      referrerpolicy="strict-origin-when-cross-origin allowfullscreen"
-      >
-</iframe>
+
+  <!-- Header -->
+  <header>
+    <h1>Semantic HTML Demo Page</h1>
+
+    <!-- Nav -->
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+
+    <!-- Section -->
+    <section id="about">
+      <h2>About Semantic HTML</h2>
+
+      <p>
+        HTML uses <strong>semantic elements</strong> to give meaning to content.
+        This helps <em>accessibility</em> and SEO.
+      </p>
+
+      <p>
+        You can also use <b>bold text</b> for attention and <i lang="fr">bonjour</i>
+        for foreign words.
+      </p>
+
+      <p>
+        Example of abbreviation: <abbr title="HyperText Markup Language">HTML</abbr>
+      </p>
+
+      <p>
+        Chemical formula: H<sub>2</sub>O and exponent: x<sup>2</sup>
+      </p>
+
+      <p>
+        This is <u>underlined text</u> and this is <s>incorrect text</s>.
+      </p>
+
+      <p>
+        Inline code example: <code>console.log("Hello World")</code>
+      </p>
+    </section>
+
+    <!-- Media section -->
+    <section id="media">
+      <h2>Media & Figures</h2>
+
+      <figure>
+        <img src="https://via.placeholder.com/300" alt="Example image" />
+        <figcaption>This is a sample figure with a caption.</figcaption>
+      </figure>
+
+      <p>
+        Navigation example:
+      </p>
+
+      <nav>
+        <ul>
+          <li><a href="#top">Back to top</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Quotes -->
+    <section>
+      <h2>Quotes & Citations</h2>
+
+      <blockquote cite="https://example.com">
+        This is a blockquote from an external source.
+      </blockquote>
+
+      <p>
+        As someone said: <q>Semantic HTML is important.</q>
+      </p>
+
+      <p>
+        Source: <cite>HTML Living Standard</cite>
+      </p>
+    </section>
+
+    <!-- Description list -->
+    <section>
+      <h2>Definitions</h2>
+
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
+      </dl>
+    </section>
+
+    <!-- Time & Address -->
+    <section id="contact">
+      <h2>Contact Information</h2>
+
+      <address>
+        John Doe<br />
+        123 Web Street<br />
+        Email: john@example.com
+      </address>
+
+      <p>
+        Published on:
+        <time datetime="2026-06-29T10:00:00">June 29, 2026</time>
+      </p>
+    </section>
+
+    <!-- Ruby annotation -->
+    <section>
+      <h2>Ruby Example</h2>
+
+      <p>
+        <ruby>
+          漢 <rt>kan</rt>
+        </ruby>
+      </p>
+    </section>
+
+    <!-- Preformatted code -->
+    <section>
+      <h2>Code Block</h2>
+
+      <pre>
+<code>
+body {
+  background-color: lightgray;
+  color: black;
+}
+</code>
+      </pre>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Semantic HTML Demo</p>
+  </footer>
+
 </body>
 </html>
-
-

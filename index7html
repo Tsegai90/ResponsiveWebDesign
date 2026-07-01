@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="utf-8">
+    <meta name="description" , content="Travel Agency">
+    <meta name="viewport",content="width=device-width,initial-scale=1.0">
+    <title>Travel Agency Page</title> 
+    <link rel="stylesheet" href="BP.CSS">
+   </head>
+   
+   <body>
+   <div class="title" id="tableContainer">
+<h1> Explore Travel Opportunities  </h1>
+<p> Discover exciting destinations, unique experiences, and unforgettable adventures around the world </p>
+<h2>Packages </h2>
+<p> Explore our range of travel packages designed for every type of traveler, from budget-friendly getaways to luxury vacations and adventure-filled tours</p>
+    </body>
+<ul> 
+   <li><a href="https://www.youtube.com/@MusieTewelde-vt5ol" target="_blank">Group Travels</a></li>
+   <li><a href="https://youtu.be/bP6DxU3fRrQ?si=Gbv69wLvZBUprEm8" target="_blank">Private Tours</a></li>
+
+</ul>
+   <div class="wrapper">
+   <h2>Top Itineraries </h2>
+   <figure class="color">
+     <a href="https://youtu.be/0o3FADUexU8?si=W54S4ZaNChQya8PD" target=_blank> 
+     <img src="https://cdn.freecodecamp.org/curriculum/labs/colosseo.jpg " alt="Italy"> </a> 
+      <figcaption>Italy </figcaption>
+   </figure>
+   <figure class="color"> 
+    <a href="https://youtu.be/CFxtszlRovo?si=cb0z2sEVCIfnvppo" target="_blank" > 
+      <img src="https://cdn.freecodecamp.org/curriculum/labs/alps.jpg" alt="Danmark"> </a>
+       <figcaption>Denmark </figcaption>  
+    </figure>
+
+   <figure class="color"> 
+    <a href="https://youtu.be/y9u1kaAzwss?si=AEpljx5B7r1SSSY5" target="_blank">
+      <img src="https://cdn.freecodecamp.org/curriculum/labs/sea.jpg"alt="France" > </a>
+     <figcaption> France</figcaption>
+    </figure>
+   </div>
+   </div>
+   oa
+  </body>
+  </html>
