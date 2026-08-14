@@ -1,0 +1,36 @@
+a {
+  text-decoration: none;
+}
+
+/* unvisited */
+.sub-item-link:link {
+  color: blue;
+}
+
+/* visited */
+.sub-item-link:visited {
+  color: purple;
+}
+
+/* hover */
+.sub-item-link:hover {
+  color: green;
+}
+
+/* focus */
+.sub-item-link:focus {
+  outline: 3px solid orange;
+}
+
+/* clicked */
+.sub-item-link:active {
+  color: red;
+}
+.todo-list {
+  background-color: lightgray;
+  padding: 20px;
+}
+.sub-item {
+  margin-top: 10x;
+  padding-left:10px;
+}
