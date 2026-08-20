@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container"> 
+  <p>Application — Meridian Studio</p>
+  <h1>Tell us about yourself</h1>
+
+  <form>
+    <label for="name">Full name:</label>
+    <input type="text" id="name">
+
+    <label for="email">Email address:</label>
+    <input type="email" id="email">
+
+    <label for="position">Position</label>
+    <select id="position">
+      <option>designer</option>
+       <option>developer</option>
+    </select>
+
+    <fieldset class="radio-group">
+      <input type="radio" id="full-time" name="availability">
+      <label for="full-time">Full time</label>
+      <input type="radio" 
+      name="availability"
+      id="part time">
+      <label for ="part time">Part time</label>
+    </fieldset>
+
+    <label for="message">Message</label>
+    <textarea id="message"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+</body>
+</html>

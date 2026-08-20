@@ -1,0 +1,40 @@
+/* Make form elements appear as separate blocks */
+label,
+input,
+select,
+textarea,
+fieldset,
+button {
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Change border color when input or textarea is focused */
+input:focus,
+textarea:focus {
+  border-color: red;
+  outline: none;
+}
+
+/* Change border color when fields are invalid */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: red;
+}
+
+/* Style the radio group when a radio button is selected */
+.radio-group input[type="radio"]:checked {
+  border-color: red;
+  box-shadow: 0 0 5px green;
+}
+
+/* Change label text color when radio button is selected */
+.radio-group input[type="radio"]:checked + label {
+  color: black;
+}
+
+/* Style the first input differently */
+input:first-of-type {
+  border: 2px solid blue;
+}
