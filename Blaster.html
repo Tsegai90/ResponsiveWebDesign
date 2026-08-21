@@ -2,63 +2,34 @@
 <html>
 <head>
 <title>BLASTAR</title>
-
 <style>
 body{
  background:black;
  color:white;
  text-align:center;
  font-family:monospace;
- touch-action:none;
 }
-
 canvas{
  border:2px solid white;
  background:black;
- max-width:95%;
- height:auto;
-}
-
-button{
- font-size:22px;
- padding:15px;
- margin:8px;
- background:#222;
- color:white;
- border:2px solid white;
- border-radius:8px;
-}
-
-button:active{
- background:white;
- color:black;
 }
 </style>
-
 </head>
 
 <body>
 
 <h1>BLASTAR</h1>
-
-<p>MOVE AND FIRE</p>
+<p>LEFT RIGHT = MOVE | SPACE = FIRE</p>
 
 <canvas id="game" width="600" height="400"></canvas>
-
-<br>
-
-<button id="left">⬅ LEFT</button>
-<button id="fire">🔥 FIRE</button>
-<button id="right">RIGHT ➡</button>
-
 
 <script>
 
 const canvas=document.getElementById("game");
 const ctx=canvas.getContext("2d");
 
-let keys={};
 let score=0;
+let keys={};
 
 let player={
  x:280,
@@ -67,7 +38,6 @@ let player={
 
 let shots=[];
 
-
 let enemies=[
  {x:100,y:120},
  {x:220,y:120},
@@ -75,157 +45,106 @@ let enemies=[
  {x:460,y:120}
 ];
 
-
 let freighter={
  x:120,
  y:40,
  w:360,
  h:35,
- hp:20,
- dx:1
+ direction:1
 };
 
 
-
-function fire(){
-
-shots.push({
- x:player.x+15,
- y:player.y
-});
-
-}
-
-
-// keyboard
-
 document.addEventListener("keydown",e=>{
 
-keys[e.code]=true;
+ keys[e.code]=true;
 
-if(e.code=="Space")
-fire();
+ if(e.code=="Space"){
+  shots.push({
+   x:player.x+15,
+   y:player.y
+  });
+ }
 
 });
 
 
 document.addEventListener("keyup",e=>{
-keys[e.code]=false;
+ keys[e.code]=false;
 });
 
 
-
-// mobile buttons
-
-left.ontouchstart=()=>{
-keys.ArrowLeft=true;
-};
-
-left.ontouchend=()=>{
-keys.ArrowLeft=false;
-};
-
-
-right.ontouchstart=()=>{
-keys.ArrowRight=true;
-};
-
-right.ontouchend=()=>{
-keys.ArrowRight=false;
-};
-
-
-fireBtn=document.getElementById("fire");
-
-fireBtn.ontouchstart=()=>{
-fire();
-};
-
-
-
-// game update
-
 function update(){
 
-
 if(keys.ArrowLeft)
-player.x-=4;
-
+ player.x-=4;
 
 if(keys.ArrowRight)
-player.x+=4;
+ player.x+=4;
 
 
 player.x=Math.max(0,Math.min(570,player.x));
 
 
+// move shots
 
 shots.forEach(s=>{
-s.y-=6;
+ s.y-=6;
 });
-
 
 shots=shots.filter(s=>s.y>0);
 
 
+// enemy movement
 
-// freighter movement
+enemies.forEach(e=>{
+ e.x+=freighter.direction;
 
-freighter.x+=freighter.dx;
-
-if(freighter.x<0 ||
-freighter.x+freighter.w>600)
-
-freighter.dx*=-1;
-
+ if(e.x<0 || e.x>570)
+  freighter.direction*=-1;
+});
 
 
-// hit enemies
+// shoot enemies
 
 enemies.forEach((e,i)=>{
 
-shots.forEach((s,j)=>{
+ shots.forEach((s,j)=>{
 
-if(
-s.x>e.x &&
-s.x<e.x+25 &&
-s.y>e.y &&
-s.y<e.y+20
-){
+ if(s.x>e.x &&
+    s.x<e.x+25 &&
+    s.y>e.y &&
+    s.y<e.y+20){
 
-enemies.splice(i,1);
-shots.splice(j,1);
-score+=100;
+    enemies.splice(i,1);
+    shots.splice(j,1);
+    score+=100;
 
-}
+ }
 
-});
+ });
 
 });
 
 
-
-// hit freighter
+// shoot freighter
 
 shots.forEach((s,i)=>{
 
-if(
-s.x>freighter.x &&
-s.x<freighter.x+freighter.w &&
-s.y>freighter.y &&
-s.y<freighter.y+freighter.h
-){
+if(s.x>freighter.x &&
+   s.x<freighter.x+freighter.w &&
+   s.y>freighter.y &&
+   s.y<freighter.y+freighter.h){
 
-shots.splice(i,1);
-freighter.hp--;
-score+=50;
+   shots.splice(i,1);
+   freighter.w-=10;
+   score+=50;
 
 }
 
 });
 
-}
 
+}
 
 
 
@@ -236,8 +155,6 @@ ctx.clearRect(0,0,600,400);
 
 // freighter
 
-if(freighter.hp>0){
-
 ctx.fillStyle="purple";
 
 ctx.fillRect(
@@ -247,22 +164,13 @@ freighter.w,
 freighter.h
 );
 
-}
-
 
 // enemies
 
 ctx.fillStyle="red";
 
 enemies.forEach(e=>{
-
-ctx.fillRect(
-e.x,
-e.y,
-25,
-20
-);
-
+ctx.fillRect(e.x,e.y,25,20);
 });
 
 
@@ -283,14 +191,7 @@ player.y,
 ctx.fillStyle="yellow";
 
 shots.forEach(s=>{
-
-ctx.fillRect(
-s.x,
-s.y,
-3,
-8
-);
-
+ctx.fillRect(s.x,s.y,3,8);
 });
 
 
@@ -305,16 +206,16 @@ ctx.fillText(
 );
 
 
-
-if(freighter.hp<=0){
+if(freighter.w<=0){
 
 ctx.fillText(
-"MISSION COMPLETE",
+"TARGET DESTROYED",
 200,
 200
 );
 
 }
+
 
 }
 
