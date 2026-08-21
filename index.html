@@ -1,82 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parent Teacher Conference Form</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-  <main class="container">
-    <h1 class="title center">Parent Teacher Conference Form</h1>
-    <p class="description center">Please fill out the form below to help schedule your parent-teacher conference.</p>
+<html>
+<head>
+<title>BLASTAR</title>
+<style>
+body{
+ background:black;
+ color:white;
+ text-align:center;
+ font-family:monospace;
+}
+canvas{
+ border:2px solid white;
+ background:black;
+}
+</style>
+</head>
 
-     <form>
-        <fieldset>
-          <legend>Student Information</legend>
-          <label for="student-name">Full Name: </label>
-          <input
-            type="text"
-            name="student-name"
-            id="student-name"
-            required
-            placeholder="E.g., Jane Doe"
-          />
+<body>
 
-          <label for="grade">Student Grade: </label>
-          <input
-            type="number"
-            name="grade"
-            id="grade"
-            required
-            placeholder="E.g., 4"
-          />
-        </fieldset>
-        
-        <fieldset>
-          <legend>Parent/Guardian Information</legend>
-          <label for="parent-name">Parent/Guardian Name: </label>
-          <input
-            type="text"
-            name="parent-name"
-            id="parent-name"
-            required
-            placeholder="E.g., Nancy Doe"
-          />
-        </fieldset>
+<h1>BLASTAR</h1>
+<p>LEFT RIGHT = MOVE | SPACE = FIRE</p>
 
-        <fieldset>
-          <legend>Preferred Contact Method</legend>
-          <label class="contact-method" for="email">Email: </label>
-          <input
-            id="email"
-            class="contact-method-radio-btn"
-            type="radio"
-            name="contact-method"
-            value="email"
-            checked
-          />
+<canvas id="game" width="600" height="400"></canvas>
 
-          <label class="contact-method" for="phone">Phone: </label>
-          <input
-            id="phone"
-            class="contact-method-radio-btn"
-            type="radio"
-            name="contact-method"
-            value="phone"
-          />
-        </fieldset>
+<script>
 
-        <fieldset>
-          <legend>Additional Notes</legend>
-          <label for="notes"
-            >Any specific concerns or topics you'd like to discuss?</label
-          >
-          <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
-        </fieldset>
+const canvas=document.getElementById("game");
+const ctx=canvas.getContext("2d");
 
-        <button class="submit-btn" type="submit">Submit Form</button>
-      </form>
-  </main>
-  </body>
+let score=0;
+let keys={};
+
+let player={
+ x:280,
+ y:340
+};
+
+let shots=[];
+
+let enemies=[
+ {x:100,y:120},
+ {x:220,y:120},
+ {x:340,y:120},
+ {x:460,y:120}
+];
+
+let freighter={
+ x:120,
+ y:40,
+ w:360,
+ h:35,
+ direction:1
+};
+
+
+document.addEventListener("keydown",e=>{
+
+ keys[e.code]=true;
+
+ if(e.code=="Space"){
+  shots.push({
+   x:player.x+15,
+   y:player.y
+  });
+ }
+
+});
+
+
+document.addEventListener("keyup",e=>{
+ keys[e.code]=false;
+});
+
+
+function update(){
+
+if(keys.ArrowLeft)
+ player.x-=4;
+
+if(keys.ArrowRight)
+ player.x+=4;
+
+
+player.x=Math.max(0,Math.min(570,player.x));
+
+
+// move shots
+
+shots.forEach(s=>{
+ s.y-=6;
+});
+
+shots=shots.filter(s=>s.y>0);
+
+
+// enemy movement
+
+enemies.forEach(e=>{
+ e.x+=freighter.direction;
+
+ if(e.x<0 || e.x>570)
+  freighter.direction*=-1;
+});
+
+
+// shoot enemies
+
+enemies.forEach((e,i)=>{
+
+ shots.forEach((s,j)=>{
+
+ if(s.x>e.x &&
+    s.x<e.x+25 &&
+    s.y>e.y &&
+    s.y<e.y+20){
+
+    enemies.splice(i,1);
+    shots.splice(j,1);
+    score+=100;
+
+ }
+
+ });
+
+});
+
+
+// shoot freighter
+
+shots.forEach((s,i)=>{
+
+if(s.x>freighter.x &&
+   s.x<freighter.x+freighter.w &&
+   s.y>freighter.y &&
+   s.y<freighter.y+freighter.h){
+
+   shots.splice(i,1);
+   freighter.w-=10;
+   score+=50;
+
+}
+
+});
+
+
+}
+
+
+
+function draw(){
+
+ctx.clearRect(0,0,600,400);
+
+
+// freighter
+
+ctx.fillStyle="purple";
+
+ctx.fillRect(
+freighter.x,
+freighter.y,
+freighter.w,
+freighter.h
+);
+
+
+// enemies
+
+ctx.fillStyle="red";
+
+enemies.forEach(e=>{
+ctx.fillRect(e.x,e.y,25,20);
+});
+
+
+// player
+
+ctx.fillStyle="lime";
+
+ctx.fillRect(
+player.x,
+player.y,
+30,
+20
+);
+
+
+// shots
+
+ctx.fillStyle="yellow";
+
+shots.forEach(s=>{
+ctx.fillRect(s.x,s.y,3,8);
+});
+
+
+// score
+
+ctx.fillStyle="white";
+
+ctx.fillText(
+"SCORE: "+score,
+10,
+20
+);
+
+
+if(freighter.w<=0){
+
+ctx.fillText(
+"TARGET DESTROYED",
+200,
+200
+);
+
+}
+
+
+}
+
+
+
+function loop(){
+
+update();
+draw();
+
+requestAnimationFrame(loop);
+
+}
+
+loop();
+
+</script>
+
+</body>
 </html>
