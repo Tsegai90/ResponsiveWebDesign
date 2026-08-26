@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zip2 - City Guide</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #eeeeee;
+        }
+
+        header {
+            background: #003366;
+            color: white;
+            padding: 15px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 400px;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        .business {
+            border-bottom: 1px solid #ccc;
+            padding: 15px 0;
+        }
+
+        .map {
+            height: 250px;
+            background: #b7d7a8;
+            border: 2px solid #555;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .road {
+            position: absolute;
+            background: #ddd;
+            height: 25px;
+            width: 100%;
+            top: 110px;
+            transform: rotate(-10deg);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ZIP2</h1>
+    <p>Your Online City Guide</p>
+</header>
+
+<div class="container">
+
+    <h2>Find a Business</h2>
+
+    <input
+        id="search"
+        type="text"
+        placeholder="Restaurant, hotel, store..."
+    >
+
+    <button onclick="searchBusinesses()">
+        Search
+    </button>
+
+    <div id="results"></div>
+
+    <h2>City Map</h2>
+
+    <div class="map">
+        <div class="road"></div>
+    </div>
+
+</div>
+
+<script>
+
+const businesses = [
+    {
+        name: "Joe's Pizza",
+        type: "Restaurant",
+        address: "123 Main Street"
+    },
+    {
+        name: "City Hotel",
+        type: "Hotel",
+        address: "45 Market Street"
+    },
+    {
+        name: "Computer World",
+        type: "Computer Store",
+        address: "88 Center Street"
+    }
+];
+
+
+function searchBusinesses() {
+
+    let search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    let results =
+        document.getElementById("results");
+
+    results.innerHTML = "";
+
+    businesses.forEach(business => {
+
+        if (
+            business.name.toLowerCase().includes(search) ||
+            business.type.toLowerCase().includes(search)
+        ) {
+
+            results.innerHTML += `
+                <div class="business">
+                    <h3>${business.name}</h3>
+                    <p>${business.type}</p>
+                    <p>${business.address}</p>
+                </div>
+            `;
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
