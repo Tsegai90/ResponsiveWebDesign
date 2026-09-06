@@ -1,0 +1,22 @@
+.form-container{
+  border-radius:2px;
+  padding:20px;
+  width:80%;
+  background-color:grey;
+}
+label{
+  margin:89px;
+  color:black;
+}
+input, textarea{
+  padding:10px;
+  margin-bottom:2px;
+  width:100%;
+}
+button{
+  background-color:gray;
+  font-size:1em;
+}
+button:hover{
+  background-color:blue;
+}
