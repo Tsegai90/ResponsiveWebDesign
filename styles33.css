@@ -148,3 +148,12 @@ tr.data td {
 tr.data td:last-of-type {
   padding-right: 0.5rem;
 }
+@media (min-width: 768px) {
+  h1 {
+    max-width: 60rem;
+  }
+
+  section {
+    max-width: 60rem;
+  }
+}
